@@ -17,12 +17,12 @@
         tape requires no authentication other than the account, which we now
         have. So, we:
         <ul>
-            <li>Bootstrap by finding the accounts for the 50 first orders</li>
-            <li>Start a websocket for each account, and gather the orders theh make</li>
-            <li>If we get an execution, were one of the order IDs are unknown,
+            <li>Bootstrap by finding the accounts for the 50 first orders.</li>
+            <li>Start a websocket for each account, and gather the orders they make.</li>
+            <li>If we get an execution, where one of the order IDs are unknown,
             we look up who made the order, and start a new websocket if this is
             a new account.</li>
-            <li>Rinse and repeat, finally draw fancy graphs once we have enough orders</li>
+            <li>Rinse and repeat, finally draw fancy graphs once we have enough orders.</li>
         </ul>
         </p>
 
