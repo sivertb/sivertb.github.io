@@ -1,0 +1,49 @@
+<html>
+    <body>
+        <h1>Solution for Making Amends</h1>
+        <h2>Getting the accounts</h2>
+        <p>
+        The first step is getting the accounts that are trading the stock.
+        Luckily the DELETE command leaks information in the error message. If
+        you try to delete an order that isn't yours, it will happily tell you
+        who it actually belongs to. Also worth nothing is that if you try to
+        delete an order that doesn't exist, it will tell you the currently
+        highest order ID. Might be handy in the future.
+        </p>
+
+        <h2>Getting account orders</h2>
+        <p>
+        Once we have the accounts, we have to get their trades. The execution
+        tape requires no authentication other than the account, which we now
+        have. So, we:
+        <ul>
+            <li>Bootstrap by finding the accounts for the 50 first orders</li>
+            <li>Start a websocket for each account, and gather the orders theh make</li>
+            <li>If we get an execution, were one of the order IDs are unknown,
+            we look up who made the order, and start a new websocket if this is
+            a new account.</li>
+            <li>Rinse and repeat, finally draw fancy graphs once we have enough orders</li>
+        </ul>
+        </p>
+
+        <h2>The proof</h2>
+        <img src=CES96056409.png>
+
+        <p>
+        The CES96056409 account seem to only have bought on top, and sold on
+        I did not actually run any statistical analysis, simply looked for
+        something that looked suspecious. I also had some trouble with the
+        websockets, getting an
+        </p>
+        <p>
+        <q>
+        Internal server error (w/ message broker) when attempting to establish websocket
+        </q>
+        </p>
+        <p>
+        error message after a couple thousands orders. I therefore did not
+        gather as much information as I'd would have liked to.
+        </p>
+    </body>
+</html>
+
